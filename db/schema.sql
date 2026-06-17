@@ -1,0 +1,1 @@
+-- SQLite schema for N100 project
