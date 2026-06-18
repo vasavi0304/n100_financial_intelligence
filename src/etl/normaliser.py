@@ -1,1 +1,12 @@
-# Data normalisation functions
+def normalize_ticker(ticker):
+    if ticker is None:
+        return None
+
+    return str(ticker).strip().upper()
+
+
+def normalize_year(year):
+    if year is None:
+        return None
+
+    return str(year).strip()
