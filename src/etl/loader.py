@@ -1,6 +1,6 @@
 import pandas as pd
 
-file_path = "data/raw/cashflow.xlsx"
+file_path = "data/raw/analysis.xlsx"
 
 df = pd.read_excel(file_path, header=1)
 
