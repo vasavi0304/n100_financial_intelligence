@@ -138,3 +138,148 @@
 - Year values are numeric (2024, 2023, 2022, etc.).
 - Multiple years of reports are available for each company.
 - Will be used later for document management and report retrieval.
+
+## prosandcons.xlsx
+
+- Location: data/raw/prosandcons.xlsx
+- Header row: Row 2, loaded using header=1
+- Records: 16
+- Primary Key: id
+
+### Columns
+- id
+- company_id
+- pros
+- cons
+
+### Notes
+- Contains qualitative company strengths and weaknesses.
+- Multiple rows may exist for the same company.
+- Some pros values are NULL.
+- Some cons values are NULL.
+- company_id should match companies.xlsx company ids.
+
+## sectors.xlsx
+
+- Location: data/raw/sectors.xlsx
+- Header row: Row 1
+- Records: 92
+- Primary Key: id
+
+### Columns
+- id
+- company_id
+- broad_sector
+- sub_sector
+- index_weight
+- market_cap_category
+
+### Notes
+- Maps each company to its sector classification.
+- One row per company.
+- company_id should match companies.xlsx company ids.
+- index_weight is numeric.
+- market_cap_category contains values such as Large Cap.
+
+## financial_ratios.xlsx
+
+- Location: data/raw/financial_ratios.xlsx
+- Header row: Row 1
+- Records: Approximately 1300+
+- Primary Key: (company_id, year)
+
+### Columns
+- id
+- company_id
+- year
+- net_profit_margin
+- operating_profit_margin
+- return_on_equity
+- debt_to_equity
+- interest_coverage
+- asset_turnover
+- free_cash_flow
+- capex
+- earnings_per_share
+- book_value_per_share
+- dividend_payout_ratio
+- total_debt
+- cash_from_operations
+
+### Notes
+- Contains calculated financial ratios and metrics.
+- One company can have multiple years of records.
+- company_id should match companies.xlsx company ids.
+- year contains values such as Dec 2012, Mar 2014, Mar 2024.
+- Useful for KPI engine and health score calculations.
+
+## peer_groups.xlsx
+
+- Location: data/raw/peer_groups.xlsx
+- Header row: Row 1
+- Records: Approximately 50+
+- Primary Key: id
+
+### Columns
+- id
+- peer_group
+- company_id
+- is_benchmark
+
+### Notes
+- Groups companies into peer comparison categories.
+- company_id should match companies.xlsx company ids.
+- is_benchmark contains TRUE or FALSE values.
+- Each peer group has one benchmark company.
+- Used for peer comparison and ranking features.
+
+## market_cap.xlsx
+
+- Location: data/raw/market_cap.xlsx
+- Header row: Row 1
+- Records: Multiple years per company
+- Primary Key: (company_id, year)
+
+### Columns
+- id
+- company_id
+- year
+- market_cap
+- enterprise_value
+- pe_ratio
+- pb_ratio
+- ev_ebitda
+- dividend_yield_pct
+
+### Notes
+- Contains valuation and market capitalization metrics.
+- company_id should match companies.xlsx company ids.
+- One company can have multiple yearly records.
+- Used for valuation analysis and stock screening.
+- year values range from 2019 to 2024.
+
+## stock_prices.xlsx
+
+- Location: data/raw/stock_prices.xlsx
+- Header row: Row 1
+- Records: Approximately 5520
+- Primary Key: (company_id, date)
+
+### Columns
+- id
+- company_id
+- date
+- open_price
+- high_price
+- low_price
+- close_price
+- volume
+- adjusted_close
+
+### Notes
+- Contains historical stock price data.
+- company_id should match companies.xlsx company ids.
+- date is in YYYY-MM-DD format.
+- Used for price trend analysis and CAGR calculations.
+- adjusted_close is used for return calculations.
+- volume contains traded share volume.
