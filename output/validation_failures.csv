@@ -1,0 +1,5 @@
+rule_id,severity,dataset,column,message
+DQ-02,WARNING,profitandloss.xlsx,"company_id, year",Duplicate company-year records found
+DQ-06,WARNING,profitandloss.xlsx,sales,Sales should be positive
+DQ-02,WARNING,balancesheet.xlsx,"company_id, year",Duplicate company-year records found
+DQ-07,WARNING,cashflow.xlsx,net_cash_flow,Net cash flow mismatch greater than 10 crore
